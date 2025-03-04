@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Slider</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 50px;
+        }
+        .slider-container {
+            width: 500px;
+            height: 300px;
+            margin: auto;
+            position: relative;
+        }
+        img {
+            width: 100%;
+            height: 100%;
+            border-radius: 10px;
+        }
+        .btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(0, 0, 0, 0.5);
+            color: white;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+        }
+        .prev {
+            left: 10px;
+        }
+        .next {
+            right: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <h2>Image Slider</h2>
+    <div class="slider-container">
+        <button class="btn prev" onclick="prevImage()">❮</button>
+        <img id="slider" src="https://source.unsplash.com/500x300/?nature,water" alt="Image Slider">
+        <button class="btn next" onclick="nextImage()">❯</button>
+    </div>
+
+    <script>
+        const images = [
+            "https://ghantee.com/wp-content/uploads/2023/12/lord-shiva-and-parvati-cute-cartoon-image-1024x1024.jpg",
+            "https://i.pinimg.com/736x/7d/96/00/7d96008e08b15caf421fdd0142ab721d.jpg",
+            "https://img.freepik.com/premium-photo/3d-rendering-little-krishna-vrindavan_789916-1794.jpg?w=996",
+            "https://images-na.ssl-images-amazon.com/images/S/pv-target-images/c1fc9c1faa1a47252acd59963a19f898138d4dda8267d0b99a911bcb3a9d9f4e._V_SX1080_.jpg",
+            "https://wallpaperaccess.com/full/8794527.jpg"
+        ];
+
+        let index = 0;
+        const slider = document.getElementById("slider");
+
+        function nextImage() {
+            index = (index + 1) % images.length;
+            slider.src = images[index];
+        }
+
+        function prevImage() {
+            index = (index - 1 + images.length) % images.length;
+            slider.src = images[index];
+        }
+    </script>
+
+</body>
+</html>
